@@ -3,10 +3,10 @@ package main
 import (
 	"net/http"
 
-	"github.com/employee-store/router"
-	"github.com/employee-store/server"
+	"example.com/greetings/router"
+	"example.com/greetings/server"
 
-	"github.com/employee-store/employee"
+	"example.com/greetings/employee"
 )
 
 func main() {
@@ -14,5 +14,7 @@ func main() {
 	srv := server.NewServer(store)
 	r := router.NewRouter(srv)
 
-	http.ListenAndServe(":8080", r)
+	port := ":8080"
+	print("Listening on port ", port)
+	http.ListenAndServe(port, r)
 }
